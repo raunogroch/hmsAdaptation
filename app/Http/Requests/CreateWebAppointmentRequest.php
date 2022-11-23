@@ -28,11 +28,11 @@ class CreateWebAppointmentRequest extends FormRequest
             'department_id' => 'required',
             'opd_date'      => 'required',
             'problem'       => 'nullable',
-            'email'         => 'required|email:filter',
+            //'email'         => 'nullable|email:filter',
         ];
-        if (request()->get('patient_type') == 1) {
+        /*if (request()->get('patient_type') == 1) {
             $validationFields['password'] = 'required|same:password_confirmation|min:6';
-        }
+        }*/
         if (request()->get('patient_type') == 2) {
             $validationFields['patient_id'] = 'required';
         }

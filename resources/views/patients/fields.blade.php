@@ -14,12 +14,6 @@
     </div>
     <div class="col-md-6">
         <div class="form-group mb-5">
-            {{ Form::label('email', __('messages.user.email').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}<span class="required"></span>
-            {{ Form::email('email', null, ['class' => 'form-control form-control-solid', 'required', 'tabindex' => '3']) }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group mb-5">
             {{ Form::label('dob', __('messages.user.dob').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}
             {{ Form::text('dob', null, ['class' => 'form-control form-control-solid', 'id' => 'birthDate', 'autocomplete' => 'off', 'tabindex' => '4']) }}
         </div>
@@ -58,19 +52,6 @@
         <div class="form-group mb-5">
             {{ Form::label('blood_group', __('messages.user.blood_group').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}
             {{ Form::select('blood_group', $bloodGroup, null, ['class' => 'form-select form-select-solid fw-bold', 'id' => 'bloodGroup', 'placeholder' => 'Select Blood Group', 'data-control' => 'select2', 'tabindex' => "9"]) }}
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group mb-5">
-            {{ Form::label('password', __('messages.user.password').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}<span class="required"></span>
-            {{ Form::password('password', ['class' => 'form-control form-control-solid','required','min' => '6','max' => '10', 'tabindex' => '10']) }}
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group mb-5">
-            {{ Form::label('password_confirmation', __('messages.user.password_confirmation').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}
-            <span class="required"></span>
-            {{ Form::password('password_confirmation', ['class' => 'form-control form-control-solid','required','min' => '6','max' => '10', 'tabindex' => '11']) }}
         </div>
     </div>
     <div class="form-group col-md-4 mb-5">

@@ -264,9 +264,13 @@ class AppointmentRepository extends BaseRepository
             $input['department_id'] = Department::whereName('Patient')->first()->id;
             $input['dob'] = (! empty($input['dob']) || isset($input['dob'])) ? $input['dob'] : null;
             $input['phone'] = (! empty($input['phone']) || isset($input['phone'])) ? $input['phone'] : null;
-            $input['password'] = Hash::make($input['password']);
+            //$input['password'] = Hash::make($input['password']);
+
+
             $userData = Arr::only($input,
-                ['first_name', 'last_name', 'gender', 'password', 'email', 'department_id', 'status']);
+                //['first_name', 'last_name', 'gender', 'password', 'email', 'department_id', 'status']);
+                ['first_name', 'last_name', 'gender', 'department_id', 'status']);
+
 
             $user = User::create($userData);
             if (isset($input['email'])) {
@@ -280,14 +284,16 @@ class AppointmentRepository extends BaseRepository
             $user->update(['owner_id' => $ownerId, 'owner_type' => $ownerType]);
             $user->assignRole($input['department_id']);
 
+
+            $date = explode('[object HTMLInputElement]',$input['opd_date'])[0];
+
             $appointment = Appointment::create([
                 'patient_id'    => $patient->id,
-                'doctor_id'     => $input['doctor_id'],
-                'department_id' => $appointmentDepartmentId,
-                'opd_date'      => $input['opd_date'],
+                'doctor_id'     => (int)$input['doctor_id'],
+                'department_id' => (int)$appointmentDepartmentId,
+                'opd_date'      => $date,
                 'problem'       => $input['problem'],
             ]);
-
 
             DB::commit();
 

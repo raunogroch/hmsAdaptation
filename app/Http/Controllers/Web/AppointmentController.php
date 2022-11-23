@@ -42,13 +42,13 @@ class AppointmentController extends AppBaseController
                 $this->appointmentRepository->create($input);
             }
 
-            if ($input['patient_type'] == 1 && ! empty($input['patient_type'])) {
+            /*if ($input['patient_type'] == 1 && ! empty($input['patient_type'])) {
                 $emailExists = User::whereEmail($input['email'])->exists();
                 if ($emailExists) {
                     return $this->sendError('Email already exists, please select old patient.');
                 }
                 $this->appointmentRepository->createNewAppointment($input);
-            }
+            }*/
 
             DB::commit();
 

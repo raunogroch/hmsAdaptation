@@ -11,12 +11,6 @@
             <label class="mb-0 label-mt-3">{{ __('messages.old_patient') }}</label>
         </div>
     </div>
-    <div class="form-group col-md-6 patient-email-div mb-4">
-        <label>{{__('messages.user.email')}}:
-            <span class="text text-danger">*</span>
-        </label>
-        {{ Form::email('email', null, ['class' => 'form-control form-control-solid old-patient-email','placeholder'=>Lang::get('messages.web_contact.enter_your_email'),'autocomplete' => 'off','required']) }}
-    </div>
 
     <div class="form-group col-sm-6 old-patient d-none mb-4">
         <label for="patient_id">{{__('messages.appointment.patient_name')}}:
@@ -49,19 +43,6 @@
             {{ Form::radio('gender', '1', false, ['class' => 'form-check-input radio_btn', 'id' => 'flexRadioSm']) }}
             <label class="mb-0 label-mt-3">{{ __('messages.user.female') }}</label>
         </div>
-    </div>
-
-    <div class="form-group col-xl-3 col-md-6 password-div mb-4">
-        <label for="password">{{__('messages.user.password')}}:
-            <span class="text text-danger">*</span>
-        </label>
-        {{ Form::password('password', ['class' => 'form-control form-control-solid','placeholder'=>Lang::get('messages.web_appointment.enter_your_password'),'required','min' => '6','max' => '10','id'=>'password']) }}
-    </div>
-    <div class="form-group col-xl-3 col-md-6 confirm-password-div mb-4">
-        <label for="password_confirmation">{{__('messages.user.password_confirmation')}}:
-            <span class="text text-danger">*</span>
-        </label>
-        {{ Form::password('password_confirmation', ['class' => 'form-control form-control-solid','placeholder'=>Lang::get('messages.web_appointment.enter_confirm_password'),'required','min' => '6','max' => '10','id'=>'confirmPassword']) }}
     </div>
 
     <div class="form-group drop_down col-sm-6 mb-4">

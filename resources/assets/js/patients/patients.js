@@ -51,7 +51,6 @@ $(document).ready(function () {
                            </div>
                            <div class="d-flex flex-column">
                                 <a href="${showLink}" class="mb-1">${row.user.full_name}</a>
-                                <span>${row.user.email}</span>
                             </div>
                          </div>`;
                 },

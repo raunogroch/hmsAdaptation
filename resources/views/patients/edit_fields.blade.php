@@ -14,12 +14,6 @@
     </div>
     <div class="col-md-6">
         <div class="form-group mb-5">
-            {{ Form::label('email', __('messages.user.email').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}<span class="required"></span>
-            {{ Form::email('email', null, ['class' => 'form-control form-control-solid', 'required', 'tabindex' => '3']) }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group mb-5">
             {{ Form::label('dob', __('messages.user.dob').':', ['class' => 'form-label fs-6 fw-bolder text-gray-700 mb-3']) }}
             {{ Form::text('dob', null, ['class' => 'form-control form-control-solid', 'id' => 'birthDate', 'autocomplete' => 'off', 'tabindex' => '4']) }}
         </div>

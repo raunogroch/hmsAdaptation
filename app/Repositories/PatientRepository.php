@@ -51,17 +51,14 @@ class PatientRepository extends BaseRepository
      * @param  bool  $mail
      * @return bool
      */
-    public function store($input, $mail = true)
+    public function store($input)
     {
+
         try {
             $input['phone'] = preparePhoneNumber($input, 'phone');
             $input['department_id'] = Department::whereName('Patient')->first()->id;
-            $input['password'] = Hash::make($input['password']);
             $input['dob'] = (! empty($input['dob'])) ? $input['dob'] : null;
             $user = User::create($input);
-            if ($mail) {
-                $user->sendEmailVerificationNotification();
-            }
 
             if (isset($input['image']) && ! empty($input['image'])) {
                 $mediaId = storeProfileImage($user, $input['image']);
@@ -97,6 +94,7 @@ class PatientRepository extends BaseRepository
             unset($input['password']);
 
             $user = User::find($patient->user->id);
+
             if ($input['avatar_remove'] == 1 && isset($input['avatar_remove']) && !empty($input['avatar_remove'])) {
                 removeFile($user, User::COLLECTION_PROFILE_PICTURES);
             }

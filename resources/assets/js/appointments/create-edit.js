@@ -17,7 +17,17 @@ $(document).ready(function () {
 
     let opdDate = $("#opdDate").flatpickr({
         enableTime: false,
-        // minDate: moment().subtract(1, 'days').format(),
+        locale: {
+            firstDayOfWeek: 1,
+            weekdays: {
+                shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            },
+            months: {
+                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
+                longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            },
+        },
         minDate: moment(new Date()).format('YYYY-MM-DD'),
         dateFormat: "Y-m-d",
         onChange: function (selectedDates, dateStr, instance) {
